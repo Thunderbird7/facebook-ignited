@@ -1,0 +1,35 @@
+================================
+========== Change Log ==========
+================================
+
+============ v1.0.6 ============
+# Upgraded the Facebook PHP SDK to v3.1.1
+# Updated CodeIgniter to v2.0.3
+# Added the ability to specify the global variable returned in from fb_get_app().
+# Added the choice of full facebook friends list or just friends who have app installed to fb_list_friends().
+============ v1.0.5 ============
+# Added extending permissions ability to fb_check_permission() function.
+# Added fb_create_event() function which allows you to create an event.
+# Added the ability to define scope in fb_login_url().
+# Added the support for Facebook Connect to Library while creating a config setting that decides what type to use.
+# Added Facebook register plugin support in fb_register_form() function to the Library, parses raw JSON or Array (
+  converts to JSON) and returns an iframe which the system then pulls up the form in. As well as JSON support, the 
+  fb_register_form() function can also take html attributes to modify the look of iframe.
+# Added fb_feed() function which allows for a non JavaScript method of publishing to a feed as well as deleting posts.
+============ v1.0.4 ============
+# Upgraded the Facebook PHP SDK to v3.0.1 
+# Minor fixes in code to make sure compatability with servers that do not support PHP Short Tags.
+# Added PHP redirect support for the fb_get_me() function, added to the javascript redirect support already present.
+# Added fb_is_bookmarked() function which returns a boolean value regarding if app is bookmarked.
+# Added fb_check_permissions($permission) function which will check if that the permission you are looking for is 
+  already authorized.
+# Added fb_is_liked() function which will return a boolean value regarding whether a person has like your app's page.
+# Added fb_list_friends() function which will return an array of values for which of your friends also installed app.
+# Added fb_process_credits() function which will allow ability to process Facebook Credits.
+============ v1.0.3 ============
+# Upgraded the Facebook PHP SDK to v3.0.0
+# Consolidated the fb_get_me() & fb_get_session() functions into fb_get_me()
+============ v1.0.2 ============
+# Support for both HTTP & HTTPS added.
+# Shortened the require value in config for 'fb_canvas' to the value you placed in "Canvas Page" box in dev panel.
+# Removed type calling when using acceptance of friend requests, will only use model.
