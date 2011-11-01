@@ -7,6 +7,8 @@
 # Updated CodeIgniter to v2.0.3
 # Added the ability to specify the global variable returned in from fb_get_app().
 # Added the choice of full facebook friends list or just friends who have app installed to fb_list_friends().
+# Added the ability to choose whether a user is redirected to the login page. Default is false.
+# Removed the fb_get_auth_scope() & fb_get_canvas() functions, due to being able to retrieve global vars from fb_get_app().
 ============ v1.0.5 ============
 # Added extending permissions ability to fb_check_permission() function.
 # Added fb_create_event() function which allows you to create an event.

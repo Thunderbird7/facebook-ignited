@@ -101,6 +101,9 @@ class Fb_ignited
 	{
 		/**
 		 * Checks if the permission type enquired about is authenticated and accepted.
+		 * 
+		 * @param $perm - this is the permission that will be checked.
+		 * @param $extend - this will tell the function whether or not to extend the users permissions.
 		 */
 		$FQL = array ( "method" => "fql.query", "query" => "SELECT ".$perm." FROM permissions WHERE uid = me()");
 		$datas = $this->CI->facebook->api($FQL);
@@ -174,33 +177,15 @@ class Fb_ignited
 		}
 	}
 	
-	function fb_get_auth_scope()
-	{
-		/**
-		 * Returns the default scope for authentication from the fb_ignited 
-		 * config file.
-		 */
-		return $this->globals['fb_auth'];
-	}
-	
-	function fb_get_canvas()
-	{
-		/**
-		 * This method returns the canvas address you declared in 
-		 * config/fb_ignited.php. It is used if you ever need to have the 
-		 * canvas on hand outside of the class.
-		 */
-		return $this->globals['fb_canvas'];
-	}
-	
-	function fb_get_me($script=true)
+	function fb_get_me($redirect=false, $script=true)
 	{
 		/**
 		 * This returns all of the information for the user from facebook, 
 		 * if it can't recieve anything its due to no authorization so refer them 
 		 * to it.
 		 * 
-		 * Script - if set to true will echo out a JavaScript redirect. If set to false will redirect.
+		 * @param $script - if set to true will echo out a JavaScript redirect. If set to false will redirect.
+		 * @param $redirect - if set to true will cause the user to be redirected to 
 		 */
 		$this->CI->load->helper('url');
 		$user = $this->CI->facebook->getUser();
@@ -217,9 +202,16 @@ class Fb_ignited
 		}
 		else
 		{
-			if ($script == true): echo $this->fb_login_url(true);
-			else: $loc = $this->fb_login_url(); redirect($loc); endif;
-			exit;
+			if ($redirect == true)
+			{
+				if ($script == true): echo $this->fb_login_url(true);
+				else: $loc = $this->fb_login_url(); redirect($loc); endif;
+				exit;
+			}
+			else 
+			{
+				return false;
+			}
 		}	
 	}
 	
