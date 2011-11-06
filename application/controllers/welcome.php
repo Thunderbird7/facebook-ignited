@@ -25,7 +25,10 @@ class Welcome extends CI_Controller {
 		{
 			$content_data['error'] = $this->request_result;
 		}
-		$content_data['me'] = $this->fb_me;
+		if ($this->fb_me)
+		{
+			$content_data['me'] = $this->fb_me;
+		}
 		$content_data['fb_app'] = $this->fb_app;
 		$this->load->view('welcome_message', $content_data);
 	}

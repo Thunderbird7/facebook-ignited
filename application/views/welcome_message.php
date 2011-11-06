@@ -127,9 +127,11 @@
 <div id="fb-root"></div>
 <fb:like show_faces="false" layout="button_count"></fb:like>
 <?php if (isset($error)): echo $error; endif; ?>
-<h1>Welcome <?php if (isset($me)): echo $me['first_name'].","; endif; ?> to Facebook Ignited!</h1>
+<h1>Welcome <?php if (isset($me)): echo $me['first_name'].","; else: echo "Guest"; endif; ?> to Facebook Ignited!</h1>
 
 <p>The page you are looking at is being generated dynamically by CodeIgniter &amp; the Facebook SDK.</p>
+
+<p>You can can view the advanced features by clicking <a href="$login_login">this link</a> to authorize the app!</p>
 
 <p>If you would like to edit this page you'll find it located at:</p>
 <code>application/views/welcome_message.php</code>
@@ -139,7 +141,7 @@
 
 <p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 
-<p>You can view the source code at: <a href="https://hg.darkprospect.net/facebook-ignited/" target="_blank">https://hg.darkprospect.net/facebook-ignited/</a></p>
+<p>You can view the source code at: <a href="https://bitbucket.org/deth4uall/facebook-ignited/" target="_blank">https://bitbucket.org/deth4uall/facebook-ignited/</a> & <a href="https://github.com/deth4uall/facebook-ignited/" target="_blank">https://github.com/deth4uall/facebook-ignited/</a></p>
 
 <p><a href='javascript:void();' onclick='sendRequest()'>Try a Request</a> | <a href='javascript:void();' onclick='sendfeed()'>Try Publishing to Your Feed</a></p>
 <form name ="place_order" id="order_form" action="#">
